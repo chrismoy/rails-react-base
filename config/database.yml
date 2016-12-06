@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  port: 5432
+  username: foodrly
+
+development:
+  <<: *default
+  database: foodrly_development
+
+test:
+  <<: *default
+  database: foodrly_test
+
+production:
+  <<: *default
+  database: foodrly_production
+  password: <%= ENV['DB_PRODUCTION_PASSWORD'] %>
