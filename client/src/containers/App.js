@@ -24,14 +24,6 @@ class App extends Component {
     });
   }
 
-  changePage(position) {
-    if (this.state.appPosition !== position) {
-      this.setState({
-        appPosition: position
-      })
-    }
-  }
-
   render() {
     return (
       <div className="Device">
@@ -41,7 +33,8 @@ class App extends Component {
             <PlacesIndex />
             <ResultsIndex />
           </div>
-          <Header headerPositionClass={`${this.state.headerPositionClass}`} />
+          <Header
+            headerPositionClass={`${this.state.headerPositionClass}`} />
         </div>
       </div>
     );

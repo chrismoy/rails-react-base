@@ -2,10 +2,14 @@ import React, { Component } from 'react';
 import Image from './Image';
 
 class HeaderIcon extends Component {
+  constructor() {
+    super();
+    this.handleClick = this.handleClick.bind(this);
+  }
 
   handleClick(e) {
     e.preventDefault();
-    this.props.handleClick();
+    console.log(this);
   }
 
   render() {
@@ -13,23 +17,17 @@ class HeaderIcon extends Component {
     const cssClasses = this.props.cssClasses;
     const image = this.props.image;
     const title = this.props.title;
-    const data = this.props.data;
 
     const imageProps = {
       alt: title,
-      className: cssClasses,
-      src: image,
+      cssClasses: cssClasses,
+      image: image,
+      handleClick: this.handleClick,
       title: title
-      data: data
     }
 
     return (
-      <Image
-        image={settingsIcon}
-        title="Settings"
-        cssClasses="header__icon header__icon--0"
-        onClick={this.changePage}
-        data={{postion: 0}} />
+      <Image {...imageProps} />
     );
   }
 }

@@ -7,13 +7,15 @@ class Image extends Component {
     // Expects 'cssClasses' as a space-separated list
 
     const cssClasses = this.props.cssClasses;
+    const data = this.props.data;
+    const handleClick = this.props.handleClick;
     const image = this.props.image;
     const title = this.props.title;
-    const data = this.props.data;
 
     const imageProps = {
       alt: title,
       className: cssClasses,
+      onClick: handleClick,
       src: image,
       title: title
     }
