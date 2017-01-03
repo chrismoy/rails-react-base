@@ -1,6 +1,6 @@
-function search(id) {
+function fetchGet(id) {
 
-  const url = `/places/${id}`;
+  const url = `/places`;
 
   const headers = new Headers({
     "Accept": "application/vnd.foodrly.v1+json",
@@ -33,5 +33,5 @@ function parseJSON(response) {
   return response.json();
 }
 
-const Client = { search };
+const Client = { fetchGet };
 export default Client;

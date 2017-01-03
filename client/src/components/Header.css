@@ -1,0 +1,87 @@
+.header {
+  background-color: transparent;
+  height: 60px;
+  left: 0;
+  overflow-x: scroll;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.header__content {
+  height: 100%;
+  left: 0;
+  margin: 0 auto;
+  position: relative;
+  width: 100%;
+}
+
+.header:before {
+  background-color: red;
+  /*content: '';*/
+  height: 100%;
+  position: absolute;
+  left: 0%;
+  top: 0;
+  width: 50%;
+}
+
+.header__icon {
+  cursor: pointer;
+  height: auto;
+  position: absolute;
+  top: 15px;
+  width: 30px;
+}
+
+.header__icon--active { display: none; }
+
+/* Align with left edge */ 
+.header__icon--0 { left: 0; }
+.header__content.header__content--position-0 > .header__icon--0 { display: none; }
+.header__content.header__content--position-0 > .header__icon--0.header__icon--active { display: inline-block; }
+
+/* left 1 * 50%, then offset using -(0.5 * icon-width) to center */
+.header__icon--1 {
+  left: 50%;
+  margin-left: -15px
+}
+.header__content.header__content--position-1 > .header__icon--1 { display: none; }
+.header__content.header__content--position-1 > .header__icon--1.header__icon--active { display: inline-block; }
+
+/* left 2 * 50%, then offset using -(icon-width) to align with right edge */
+.header__icon--2 {
+  left: 100%;
+  margin-left: -30px
+}
+.header__content.header__content--position-2 > .header__icon--2 { display: none; }
+.header__content.header__content--position-2 > .header__icon--2.header__icon--active { display: inline-block; }
+
+/* push header content to the right 50% minus 0.5 * icon-width to center active */
+.header__content.header__content--position-0 {
+  left: 50%;
+  left: calc(50% - 15px);
+}
+/* Move logo icon 15px back to create a uniform gutter */
+.header__content.header__content--position-0 > .header__icon--1 { margin-left: -30px; }
+
+.header__content.header__content--position-1 { left: 0; }
+.header__content.header__content--position-1 > .header__icon--0 { margin-left: 15px; }
+.header__content.header__content--position-1 > .header__icon--2 { margin-left: -45px; }
+
+/* pull header content to the left 50% minus 0.5 * icon-width to center active */
+.header__content.header__content--position-2 {
+  left: -50%;
+  left: calc(-50% + 15px);
+}
+/* Move logo icon 15px forward to create a uniform gutter */
+.header__content.header__content--position-2 > .header__icon--1 { margin-left: 0; }
+
+.header__text-logo {
+  height: auto;
+  margin-left: -55px;
+  top: 22px;
+  width: 110px;
+}
+
+

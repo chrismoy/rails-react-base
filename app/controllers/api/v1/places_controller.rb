@@ -12,9 +12,9 @@ class Api::V1::PlacesController < ApplicationController
 
   private
 
-    # def place_params
-    #   params.require(:place).permit(:name, :yelp_id)
-    # end
+    def place_params
+      params.require(:place).permit(:name, :yelp_id)
+    end
 
     def set_place
       @place = Place.find(params[:id])

@@ -1,0 +1,34 @@
+.Device {
+  background-color: white;
+  box-shadow: 0 0 10px 10px #AAA;
+  box-sizing: border-box;
+  display: block;
+  height: 667px;
+  margin: 0 auto;
+  position: relative;
+  width: 375px;
+}
+
+#app {
+  background: white;
+  background: linear-gradient(white, #ECEFF1);
+  box-sizing: border-box;
+  display: block;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  position: relative;
+  width: 100%;
+}
+ 
+.app__content {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 300%;
+}
+
+.app__content.app__content--position-0 { left: 0; }
+.app__content.app__content--position-1 { left: -100%; }
+.app__content.app__content--position-2 { left: -200%; }
