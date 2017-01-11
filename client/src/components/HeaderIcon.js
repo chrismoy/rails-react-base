@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Image from './Image';
 
 class HeaderIcon extends Component {
   constructor() {
@@ -7,9 +6,8 @@ class HeaderIcon extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick(e) {
-    e.preventDefault();
-    console.log(this);
+  handleClick() {
+    this.props.handleClick(this.props.position);
   }
 
   render() {
@@ -20,14 +18,14 @@ class HeaderIcon extends Component {
 
     const imageProps = {
       alt: title,
-      cssClasses: cssClasses,
-      image: image,
-      handleClick: this.handleClick,
+      className: cssClasses,
+      onClick: this.handleClick,
+      src: image,
       title: title
     }
 
     return (
-      <Image {...imageProps} />
+      <img {...imageProps} />
     );
   }
 }

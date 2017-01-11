@@ -1,26 +1,39 @@
 import React, { Component } from 'react';
 import './App.css';
 import Header from '../components/Header';
-import PlacesIndex from '../components/PlacesIndex';
-import ResultsIndex from '../components/ResultsIndex';
-import UsersEdit from '../components/UsersEdit';
+import PlacesIndex from './PlacesIndex';
+import ResultsIndex from './ResultsIndex';
+import UsersEdit from './UsersEdit';
 
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      appPosition: 2,
+      appPosition: 0,
       contentPositionClass: "",
       foodPlaces: [],
       headerPositionClass: ""
     };
+
+    this.changeAppPosition = this.changeAppPosition.bind(this);
   }
 
   componentDidMount() {
+    this.setAppPosition();
+  }
+
+  changeAppPosition(position) {
+    this.setState({ appPosition: position }, () => {
+      this.setAppPosition();
+    });
+  }
+
+  setAppPosition() {
+    const position = this.state.appPosition;
     this.setState({
-      contentPositionClass: `app__content--position-${this.state.appPosition}`,
-      headerPositionClass: `header__content--position-${this.state.appPosition}`
+      contentPositionClass: `app__content--position-${position}`,
+      headerPositionClass: `header__content--position-${position}`
     });
   }
 
@@ -34,7 +47,8 @@ class App extends Component {
             <ResultsIndex />
           </div>
           <Header
-            headerPositionClass={`${this.state.headerPositionClass}`} />
+            headerPositionClass={ `${this.state.headerPositionClass}` }
+            changeAppPosition={ this.changeAppPosition } />
         </div>
       </div>
     );

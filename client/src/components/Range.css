@@ -1,0 +1,53 @@
+.range__tile {
+  padding: 15px;
+  width: 100%;
+}
+
+.range__tile hr {
+  border: 1px solid #ECEFF1;
+  margin-top: 30px;
+}
+
+.range__title {
+  display: inline-block;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.range__value {
+  color: #607D8B;
+  float: right;
+  font-size: 16px;
+}
+
+.range__slider {
+  appearance: none;
+  display: block;
+  margin-top: 15px;
+  outline: none;
+  width: 100%;
+}
+
+.range__slider::-webkit-slider-runnable-track {
+  appearance: none;
+  background-color: #CFD8DC;
+  height: 4px;
+}
+
+.range__slider::-ms-fill-lower {
+  background-color: red;
+}
+
+.range__slider::-moz-range-progress {
+  background-color: red;
+}
+
+.range__slider::-webkit-slider-thumb {
+  appearance: none;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0 0 3px 1px rgba(0,0,0,0.5);
+  height: 30px;
+  margin-top: -13px;
+  width: 30px;
+}

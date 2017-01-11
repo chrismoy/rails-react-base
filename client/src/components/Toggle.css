@@ -1,0 +1,34 @@
+.toggle__tile {
+  padding: 15px;
+  width: 100%
+}
+
+.toggle__tile hr {
+  border: 1px solid #ECEFF1;
+  margin-top: 30px;
+}
+
+.toggle__title {
+  display: inline-block;
+  font-size: 16px;
+  margin-bottom: 10px;
+  vertical-align: top;
+}
+
+.toggle__label {
+  display: inline-block;
+  height: 34px;
+  position: relative;
+  width: 60px;
+}
+
+.toggle {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.toggle__checkbox {
+  display: none;
+}
+
+

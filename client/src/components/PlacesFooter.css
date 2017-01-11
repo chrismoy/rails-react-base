@@ -1,4 +1,4 @@
-.last-place {
+.footer--places {
   background: white;
   box-shadow: 0 -1px 1px 1px rgba(0,0,0,0.1);
   bottom: 0;
@@ -11,13 +11,13 @@
   width: 100%;
 }
 
-.last-place__text {
+.footer--places__text {
   display: inline-block;
   line-height: 40px;
   margin: 0;
 }
 
-.last-place__icon {
+.footer--places__icon {
   float: right;
   height: 25px;
   margin-top: 7px;

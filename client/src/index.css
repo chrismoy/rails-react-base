@@ -1,6 +1,13 @@
+@font-face {
+  font-family: 'Gotham';
+  font-weight: normal;
+  font-style: normal;
+  src: url(./vendor/Gotham-Medium.otf);
+}
+
 *, body {
   box-sizing: border-box;
-  font-family: sans-serif;
+  font-family: 'Gotham', sans-serif;
   margin: 0;
   padding: 0;
   transition: .3s all;
@@ -8,4 +15,9 @@
 
 ::-webkit-scrollbar {
     display: none;
+}
+
+button {
+  cursor: pointer;
+  outline: none;
 }

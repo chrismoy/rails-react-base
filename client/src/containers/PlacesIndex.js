@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Page.css';
-import CardStack from './CardStack';
-import LastPlace from './LastPlace';
+import CardStack from '../components/CardStack';
+import PlacesFooter from '../components/PlacesFooter';
 
 class PlacesIndex extends Component {
   constructor(props) {
@@ -14,9 +14,9 @@ class PlacesIndex extends Component {
 
   render() {
     return (
-      <div className="page">
+      <div className="page page--places-index">
         <CardStack />
-        <LastPlace />
+        <PlacesFooter />
       </div>
     );
   }
