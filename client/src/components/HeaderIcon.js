@@ -22,7 +22,7 @@ class HeaderIcon extends Component {
       onClick: this.handleClick,
       src: image,
       title: title
-    }
+    };
 
     return (
       <img {...imageProps} />

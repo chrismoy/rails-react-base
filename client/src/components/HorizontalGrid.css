@@ -1,0 +1,17 @@
+.grid--horizontal {
+  display: inline-block;
+  overflow-x: scroll;
+  white-space: nowrap;
+}
+
+.grid--horizontal__item {
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.grid--horizontal__img {
+  background-color: #FFFFFF;
+  border-radius: 50%;
+  height: 80px;
+  width: 80px;
+}

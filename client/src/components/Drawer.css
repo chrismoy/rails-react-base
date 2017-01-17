@@ -1,0 +1,45 @@
+.drawer {}
+
+.drawer__header {
+  border: 0 solid #ECEFF1;
+  border-width: 1px 0;
+  padding: 15px;
+}
+
+.drawer__title {
+  color: #607D8B;
+  display: inline-block;
+  font-size: 20px;
+}
+
+.drawer__toggle {
+  cursor: pointer;
+  float: right;
+  margin-top: 3px;
+  transition: all 0.5s;
+  width: 16px;
+}
+
+.drawer--open .drawer__toggle {
+  transform: rotate(180deg);
+}
+
+.drawer--closed .drawer__toggle {
+  transform: rotate(0deg);
+}
+
+.drawer__body {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  transition: all 0.5s;
+}
+
+.drawer--open .drawer__body {
+  height: 110px;
+  padding: 15px;
+}
+
+.drawer--closed .drawer__body {
+  height: 0;
+  padding: 0 15px;
+}

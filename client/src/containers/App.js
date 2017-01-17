@@ -10,7 +10,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      appPosition: 0,
+      appPosition: 2,
       contentPositionClass: "",
       foodPlaces: [],
       headerPositionClass: ""

@@ -5,7 +5,7 @@
 
 .toggle__tile hr {
   border: 1px solid #ECEFF1;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 .toggle__title {
@@ -24,11 +24,62 @@
 
 .toggle {
   display: inline-block;
-  vertical-align: top;
+  float: right;
+  margin-right: 15px;
 }
 
 .toggle__checkbox {
-  display: none;
+  margin-left: -9999px;
+  position: absolute;
+  visibility: hidden;
 }
 
+.toggle__checkbox + label {
+  background-color: #CFD8DC;
+  border-radius: 20px;
+  cursor: pointer;
+  display: block;
+  height: 20px;
+  outline: none;
+  position: relative;
+  user-select: none;
+  width: 40px;
+}
 
+.toggle__checkbox + label:before,
+.toggle__checkbox + label:after {
+  bottom: 0;
+  content: "";
+  display: block;
+  left: 0;
+  position: absolute;
+  transition: all 0.3s;
+}
+
+.toggle__checkbox + label:before {
+  background-color: #CFD8DC;
+  border-radius: 20px ;
+  right: 0;
+  top: 0;
+}
+
+.toggle__checkbox + label:after {
+  background-color: #ECEFF1;
+  border-radius: 100%;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+  height: 30px;
+  left: -10px;
+  top: -5px;
+  width: 30px;
+}
+
+.toggle__checkbox:checked + label:before {
+  background-color: #40C4FF;
+  transition: all 0.3s;
+}
+
+.toggle__checkbox:checked + label:after {
+  background-color: #FFFFFF;
+  margin-left: 30px;
+  transition: all 0.3s;
+}
