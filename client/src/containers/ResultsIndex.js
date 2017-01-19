@@ -3,31 +3,42 @@ import './Page.css';
 import Drawer from '../components/Drawer';
 import HorizontalGrid from '../components/HorizontalGrid';
 import FilterBar from '../components/FilterBar';
+import ResultsGrid from '../components/ResultsGrid';
 
-const restaurantNames = [
-  ["Green Street Smoked Meats", "greenStreetSmokedMeats"],
-  ["Oyster Bah", "oysterBah"],
-  ["Parlor Pizza", "parlorPizza"],
-  ["Rainbow Cone", "rainbowCone"],
-  ["Rocks Lakeview", "rocks"],
-  ["STK", "stk"],
-  ["Taco Joint", "tacoJoint"]
+const restaurants = [
+  { title: "Green Street Smoked Meats", folder: "greenStreetSmokedMeats", filters: { likes: 0, distance: 0, price: 0 }, categories: ["American", "Barbeque"] },
+  { title: "Oyster Bah", folder: "oysterBah", filters: { likes: 0, distance: 0, price: 0 }, categories: ["Seafood", "American"] },
+  { title: "Parlor Pizza", folder: "parlorPizza", filters: { likes: 0, distance: 0, price: 0 }, categories: ["Pizza"] },
+  { title: "Rainbow Cone", folder: "rainbowCone", filters: { likes: 0, distance: 0, price: 0 }, categories: ["Ice Cream"] },
+  { title: "Rocks Lakeview", folder: "rocks", filters: { likes: 0, distance: 0, price: 0 }, categories: ["American"] },
+  { title: "STK", folder: "stk", filters: { likes: 0, distance: 0, price: 0 }, categories: ["Steakhouse"] },
+  { title: "Taco Joint", folder: "tacoJoint", filters: { likes: 0, distance: 0, price: 0 }, categories: ["Tacos", "Mexican"] }
 ];
 
 const restaurantGenerator = () => {
   const basePath = "/restaurants/";
-  const restaurantIndex = Math.floor(Math.random() * restaurantNames.length - 1) + 1;
+  const restaurantIndex = Math.floor(Math.random() * restaurants.length - 1) + 1;
   const imageIndex = Math.floor(Math.random() * 5) + 1;
+  const restaurant = restaurants[restaurantIndex]
 
-  const restaurantFolder = restaurantNames[restaurantIndex][1];
+  const restaurantFolder = restaurant.folder;
   const imageName = `${restaurantFolder}${imageIndex}.jpg`;
 
   const imagePath = `${basePath}${restaurantFolder}/${imageName}`;
-  const title = restaurantNames[restaurantIndex][0];
+  const title = restaurant.title;
+  const categories = restaurant.categories;
+  const ratings = {
+    likes: Math.ceil(Math.random() * 20),
+    distance: Math.ceil(Math.random() * 9) + Math.round(Math.random() * 2) / 2,
+    price: Math.ceil(Math.random() * 4)
+  };
 
   const ret = {
-    title: title,
-    image: imagePath
+    categories: categories,
+    index: restaurantIndex,
+    image: imagePath,
+    ratings: ratings,
+    title: title
   };
 
   return ret;
@@ -38,13 +49,19 @@ class ResultsIndex extends Component {
     super(props);
 
     const recents = [];
+    const results = [];
 
     for (let i = 0; i < 10; i++) {
       recents.push(restaurantGenerator());
     }
 
+    for (let i = 0; i < 20; i++) {
+      results.push(restaurantGenerator());
+    }
+
     this.state = {
-      recents: recents
+      recents: recents,
+      results: results
     }
   }
 
@@ -54,16 +71,21 @@ class ResultsIndex extends Component {
       title: "RECENT FINDS"
     };
 
-    const gridProps = {
+    const horizontalGridProps = {
       contents: this.state.recents
+    }
+
+    const resultsGridProps = {
+      results: this.state.results
     }
 
     return (
       <div className="page page--white page--results-index">
         <Drawer {...drawerProps} >
-          <HorizontalGrid {...gridProps} />
+          <HorizontalGrid {...horizontalGridProps} />
         </Drawer>
         <FilterBar />
+        <ResultsGrid {...resultsGridProps} />
       </div>
     );
   }

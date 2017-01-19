@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Dropdown.css';
 import DropdownCaret from './img/dropdownIcon.svg';
+import DropdownTile from './DropdownTile';
 
 class Dropdown extends Component {
   constructor(props) {
@@ -9,13 +10,20 @@ class Dropdown extends Component {
     this.state = {
       dropdownPosition: "closed",
       dropdownPositionClass: "dropdown--closed",
-      title: this.props.listItems[0][0]
+      title: this.props.listItems[0].title
     }
 
-    this.toggleDropdown = this.toggleDropdown.bind(this)
+    this.setTitle = this.setTitle.bind(this);
+    this.toggle = this.toggle.bind(this);
   }
 
-  toggleDropdown() {
+  setTitle(title) {
+    this.setState({
+      title: title
+    });
+  }
+
+  toggle() {
     if (this.state.dropdownPosition === "open") {
       this.setState({
         dropdownPosition: "closed",
@@ -41,19 +49,21 @@ class Dropdown extends Component {
     return (
       <div
         className={`dropdown ${this.state.dropdownPositionClass} ${this.props.cssClasses}`}
-        onClick={this.toggleDropdown} >
+        onClick={this.toggle} >
         <h3 className="dropdown__title">
           {this.state.title}
           <img {...caretProps} />
         </h3>
-        <ul className="dropdown__list">
+        <ul
+          className="dropdown__list"
+          title={`${this.state.title} Selected`} >
           {
             this.props.listItems.map((listItem, idx) => (
-              <li
+              <DropdownTile
                 className="dropdown__list-item"
-                key={idx} >
-                {listItem}
-              </li>
+                key={idx}
+                handleClick={this.setTitle}
+                title={listItem.title} />
             ))
           }
         </ul>

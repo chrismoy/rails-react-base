@@ -9,8 +9,8 @@ class FilterBar extends Component {
     const dropdownLeftProps = {
       cssClasses: "filter-bar__dropdown--left",
       listItems: [
-        ["ALL"],
-        ["DELIVERY"]
+        { title: "ALL" },
+        { title: "DELIVERY" }
       ],
       title: "Dining Type"
     }
@@ -18,9 +18,9 @@ class FilterBar extends Component {
     const dropdownRightProps = {
       cssClasses: "filter-bar__dropdown--right",
       listItems: [
-        ["Most Likes"],
-        ["Closest (mi)"],
-        ["Affordable"]
+        { title: "Most Likes", filter: "likes" },
+        { title: "Closest (mi)", filter: "closest" },
+        { title: "Affordable", filter: "affordable" }
       ],
       title: "Data Filter"
     }

@@ -34,13 +34,12 @@ class Drawer extends Component {
     const imageProps = {
       cssClasses: "drawer__toggle",
       title: "Drawer Toggle",
-      image: Caret,
-      handleClick: this.toggleDrawer
+      image: Caret
     }
 
     return (
       <div className={`drawer ${this.state.drawerPositionClass}`}>
-        <div className="drawer__header">
+        <div className="drawer__header" onClick={this.toggleDrawer} >
           <h2 className="drawer__title">{this.props.title}</h2>
           <Image {...imageProps} />
         </div>
